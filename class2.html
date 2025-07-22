@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RO Guide - คลาสอาชีพพิเศษ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .box {
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .box h5 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        /* Adjusted .pink-box to be the container for each class info row */
+        
+        .pink-box {
+            background-color: #ffe0e6;
+            color: #6a0028;
+            font-size: 0.95rem;
+        }
+        
+        .pink-box .col-lg-2,
+        .pink-box .col-lg-10 {
+            /* Remove padding from inner columns if they contain text directly */
+            padding: 0;
+        }
+        
+        .pink-box h5 {
+            color: #d12c5b;
+            text-align: center;
+            margin-bottom: 10px;
+            /* Adjust spacing for inner headings */
+        }
+        
+        .pink-box h6 {
+            /* New style for sub-headings */
+            color: #b33939;
+            /* Slightly darker pink/red */
+            text-align: left;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        /* General heading styles */
+        
+        h1 {
+            color: #343a40;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+        
+        h3 {
+            color: #343a40;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .container {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        /* Custom Jumbotron (if you add content for it) */
+        
+        .my-jumbotron {
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            background-color: #000000;
+            border-radius: .3rem;
+            text-align: center;
+            /* Update this path if 'image/1.jpg' is not found */
+            background-image: url('image/1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: rgb(0, 0, 0);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .my-jumbotron h1 {
+            color: rgb(0, 0, 0);
+        }
+        /* Custom Navbar styling */
+        
+        .custom-navbar {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            background-color: #4a6fa5;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .custom-navbar .navbar-nav .nav-link {
+            color: #e9ecef !important;
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .custom-navbar .navbar-nav .nav-link:hover,
+        .custom-navbar .navbar-nav .nav-link.active {
+            background-color: #3b5a8e;
+            color: #ffffff !important;
+            border-radius: 5px;
+        }
+        
+        .custom-navbar .navbar-brand {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        
+        .custom-navbar .dropdown-menu {
+            background-color: #3b5a8e;
+            border: none;
+        }
+        
+        .custom-navbar .dropdown-item {
+            color: #e9ecef;
+            padding: 0.75rem 1.25rem;
+        }
+        
+        .custom-navbar .dropdown-item:hover {
+            background-color: #2a4066;
+            color: #ffffff;
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 767.98px) {
+            .pink-box p,
+            .pink-box h6,
+            .pink-box ul {
+                text-align: center;
+                /* Center text within description boxes on small screens */
+            }
+            .custom-navbar .navbar-nav .nav-link,
+            .custom-navbar .dropdown-item {
+                text-align: center;
+            }
+        }
+        
+        .pagination .page-link {
+            color: #4a6fa5;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: #4a6fa5;
+            border-color: #4a6fa5;
+            color: white;
+        }
+        /* Style for the home icon below pagination */
+        
+        .home-icon-container {
+            text-align: center;
+            margin-top: 15px;
+            /* Adjust spacing as needed */
+            margin-bottom: 30px;
+        }
+        
+        .home-icon-container a {
+            color: #4a6fa5;
+            /* Icon color */
+            font-size: 2rem;
+            /* Icon size */
+            transition: color 0.3s ease;
+        }
+        
+        .home-icon-container a:hover {
+            color: #3b5a8e;
+            /* Darker on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="bootstrapGrid.html">RO Guide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="bootstrapGrid.html">หน้าแรก</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClasses" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            คลาสอาชีพ
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownClasses">
+                            <li><a class="dropdown-item" href="class1.html">คลาสอาชีพหลัก</a></li>
+                            <li><a class="dropdown-item" href="class2.html">คลาสอาชีพพิเศษ</a></li>
+                            <li><a class="dropdown-item" href="class3.html">คลาสซัมมอนเนอร์ (แมว)</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-item" href="class4.html">การอัปคลาส 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-3" id="classes-section">
+            <div class="col-12 box pink-box">
+                <h5>คลาสอาชีพพิเศษ</h5>
+                <h5>มี 4 อาชีพ ได้แก่ เทควันโด นินจา ปืน และ Super Novice โดยมีเพียงเทควันโดเท่านั้นที่มีสาย 2.1 และ 2.2 ทำให้อาชีพพิเศษอื่นๆ ค่อนข้างลำบากในช่วงแรก</h5>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/RO_Taekwon29.webp" class="img-fluid" alt="เทควันโด">
+                        <h5 class="mt-3">เทควันโด</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>เทควันโด (Taekwon Kid)</b> คืออาชีพพิเศษที่เน้นการต่อสู้ด้วยเท้าเปล่าและทักษะการเตะเป็นหลัก</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li><b>ความเร็วในการเคลื่อนที่สูง</b></li>
+                            <li>สกิลโจมตีที่หลากหลายตามลำดับการโจมตี (Combo)</li>
+                            <li>ความสามารถในการ<b>บัฟตัวเองและปาร์ตี้</b> ผ่านระบบ Spirit (วิญญาณ)</li>
+                        </ul>
+                        <h6>ข้อจำกัด:</h6>
+                        <ul>
+                            <li>ไม่มีสกิลโจมตีระยะไกล</li>
+                            <li>ค่อนข้างเปราะบาง</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p>เมื่อเทควันโดมี Job Level สูงพอ (Job Lv. 50) สามารถเปลี่ยนเป็นอาชีพขั้นสองได้ 2 สายหลัก:</p>
+                        <ul>
+                            <li><b>Star Gladiator (สตาร์ กลาดิเอเตอร์):</b> เน้นการเพิ่มพลังโจมตีและทักษะการต่อสู้ด้วยการเตะที่รุนแรงขึ้นมาก สามารถเลือกเป้าหมายเป็นแผนที่, มอนสเตอร์, หรือวันในสัปดาห์ เพื่อรับโบนัสพลังโจมตีมหาศาล เหมาะสำหรับสายทำดาเมจสูง</li>
+                            <li><b>Soul Linker (โซล ลิงเกอร์):</b> เน้นการใช้สกิลสนับสนุนที่ทรงพลังอย่างมาก โดยเฉพาะสกิล "Soul Link" ที่สามารถมอบบัฟพิเศษให้กับอาชีพอื่น ๆ (เช่น Blacksmith Soul, Wizard Soul) ทำให้เป็นอาชีพซัพพอร์ตที่สำคัญในปาร์ตี้ แต่ตัวเองแทบไม่มีสกิลโจมตี</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/RO_Ninja29.webp" class="img-fluid" alt="นินจา">
+                        <h5 class="mt-3">นินจา</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>นินจา (Ninja)</b> คืออาชีพพิเศษที่เน้นความคล่องตัว การโจมตีที่รวดเร็ว การใช้คาถานินจา (Ninjutsu) และการต่อสู้ด้วยดาบคู่ (Katar หรือ Dagger คู่)</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li><b>สกิลเวทมนตร์ธาตุที่รวดเร็ว</b></li>
+                            <li>สกิลโจมตีด้วยอาวุธลับ (Shuriken/Kunai)</li>
+                            <li><b>สกิลหลบหลีก/ซ่อนตัว</b></li>
+                        </ul>
+                        <h6>ข้อจำกัด:</h6>
+                        <ul>
+                            <li>พลังชีวิตต่ำมาก</li>
+                            <li>มักจะใช้ SP/ไอเทมสิ้นเปลือง</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p>เมื่อนินจามี Job Level สูงพอ (Job Lv. 70 สำหรับ Class 2 Expanded) สามารถเปลี่ยนเป็นอาชีพขั้นสองได้ 1 สาย:</p>
+                        <ul>
+                            <li><b>Kagerou / Oboro (คาเงโร่ / โอโบโร่):</b> (เพศชาย/หญิงตามลำดับ) เป็นสายต่อยอดที่พัฒนาสกิลนินจาทั้งหมดให้แข็งแกร่งขึ้นมาก ทั้งเวทมนตร์ (เช่น Huuma Shuriken, Izayoi) การโจมตีด้วยอาวุธ และสกิลควบคุม/สนับสนุนที่ซับซ้อนขึ้น เหมาะสำหรับผู้เล่นที่ชื่นชอบความหลากหลายในการโจมตีและการพลิกแพลง</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/gun.png" class="img-fluid" alt="มือปืน">
+                        <h5 class="mt-3">มือปืน</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>กันเนอร์ / มือปืน (Gunslinger)</b> คืออาชีพพิเศษที่เชี่ยวชาญการใช้อาวุธปืนหลากหลายชนิด (ปืนพก, ปืนไรเฟิล, ปืนลูกซอง, ปืนกล, เครื่องยิงระเบิด)</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li><b>พลังโจมตีกายภาพระยะไกลที่รุนแรง</b></li>
+                            <li>มีสกิลเฉพาะตัวที่แตกต่างกันไปตามชนิดของปืนที่ใช้</li>
+                        </ul>
+                        <h6>ข้อจำกัด:</h6>
+                        <ul>
+                            <li>ต้องจัดการกับกระสุนและอาวุธหลายประเภท</li>
+                            <li>ค่อนข้างบอบบาง</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p>เมื่อกันเนอร์มี Job Level สูงพอ (Job Lv. 70 สำหรับ Class 2 Expanded) สามารถเปลี่ยนเป็นอาชีพขั้นสองได้ 1 สาย:</p>
+                        <ul>
+                            <li><b>Rebellion (รีเบลเลี่ยน):</b> เป็นสายต่อยอดที่พัฒนาความสามารถในการใช้อาวุธปืนให้สูงขึ้นไปอีก สามารถใช้อาวุธปืนขั้นสูงอย่าง Gatling Gun, Grenade Launcher และ Shotgun ได้อย่างมีประสิทธิภาพมากขึ้น รวมถึงมีสกิลโจมตีหมู่และสกิลควบคุมที่ทรงพลัง
+                                เหมาะสำหรับผู้ที่ต้องการเป็นสุดยอดมือปืน
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/No.png" class="img-fluid" alt="Super Novice">
+                        <h5 class="mt-3">Super Novice</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>Super Novice (ซูเปอร์โนวิซ)</b> คืออาชีพพิเศษที่ผู้เล่น Novice สามารถเปลี่ยนได้ตามเงื่อนไข (Base Lv. 45 ขึ้นไป และ Status รวมกันตามกำหนด)</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li>สามารถเรียนรู้สกิลของอาชีพ Class 1 ได้เกือบทั้งหมด (เช่น <b>Bash</b>, <b>Magnum Break</b>, <b>Heal</b>, <b>Fire Bolt</b>, <b>Double Strafe</b>) ทำให้มีความยืดหยุ่นสูงมาก</li>
+                        </ul>
+                        <h6>ข้อจำกัด:</h6>
+                        <ul>
+                            <li><b>Max HP/SP ต่ำมาก</b> เมื่อเทียบกับอาชีพอื่นในเลเวลเดียวกัน</li>
+                            <li>ไม่สามารถเปลี่ยนเป็นอาชีพขั้นสูง (Class 2) ได้</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p><b>Super Novice</b> เป็นอาชีพขั้นสุดยอดของ Novice <b>ไม่สามารถเปลี่ยนเป็นอาชีพอื่นได้อีก</b> พวกเขาจะพัฒนาความสามารถภายในอาชีพ Super Novice ของตัวเองต่อไปเรื่อยๆ โดยไม่มีสายต่อยอดเหมือนอาชีพอื่นๆ Super Novice จึงเป็นอาชีพที่ท้าทายและเหมาะสำหรับผู้เล่นที่ต้องการความแปลกใหม่ในการเล่น
+                            และสามารถใช้สกิลที่หลากหลายของอาชีพพื้นฐานมารวมกันได้อย่างอิสระครับ
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation" class="mt-5 mb-3">
+        <ul class="pagination justify-content-center">
+            <li class="page-item ">
+                <a class="page-link" href="class1.html" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="bootstrapGrid.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="class1.html">2</a></li>
+            <li class="page-item active"><a class="page-link" href="class2.html">3</a></li>
+            <li class="page-item"><a class="page-link" href="class3.html">4</a></li>
+            <li class="page-item"><a class="page-link" href="class4.html">5</a></li>
+            <li class="page-item">
+                <a class="page-link" href="class3.html" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="home-icon-container">
+        <a href="bootstrapGrid.html" title="กลับหน้าแรก">
+            <i class="bi bi-house-door-fill"></i>
+        </a>
+    </div>
+    <div class="row ">
+        <div class="col-12 box yellow-box ">
+            <h1>นาย โกศล สละชีพ 664281026 Phone-062-529-4539</h1>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

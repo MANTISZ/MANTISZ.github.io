@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RO Guide - คลาสอาชีพหลัก</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .box {
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .box h5 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        /* Adjusted .pink-box to be the container for each class info row */
+        
+        .pink-box {
+            background-color: #ffe0e6;
+            color: #6a0028;
+            font-size: 0.95rem;
+        }
+        
+        .pink-box .col-lg-2,
+        .pink-box .col-lg-10 {
+            /* Remove padding from inner columns if they contain text directly */
+            padding: 0;
+        }
+        
+        .pink-box h5 {
+            color: #d12c5b;
+            text-align: center;
+            margin-bottom: 10px;
+            /* Adjust spacing for inner headings */
+        }
+        
+        .pink-box h6 {
+            /* New style for sub-headings */
+            color: #b33939;
+            /* Slightly darker pink/red */
+            text-align: left;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        /* General heading styles */
+        
+        h1 {
+            color: #343a40;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+        
+        h3 {
+            color: #343a40;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .container {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        /* Custom Jumbotron (if you add content for it) */
+        
+        .my-jumbotron {
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            background-color: #000000;
+            border-radius: .3rem;
+            text-align: center;
+            /* Update this path if 'image/1.jpg' is not found */
+            background-image: url('image/1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: rgb(0, 0, 0);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .my-jumbotron h1 {
+            color: rgb(0, 0, 0);
+        }
+        /* Custom Navbar styling */
+        
+        .custom-navbar {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            background-color: #4a6fa5;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .custom-navbar .navbar-nav .nav-link {
+            color: #e9ecef !important;
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .custom-navbar .navbar-nav .nav-link:hover,
+        .custom-navbar .navbar-nav .nav-link.active {
+            background-color: #3b5a8e;
+            color: #ffffff !important;
+            border-radius: 5px;
+        }
+        
+        .custom-navbar .navbar-brand {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        
+        .custom-navbar .dropdown-menu {
+            background-color: #3b5a8e;
+            border: none;
+        }
+        
+        .custom-navbar .dropdown-item {
+            color: #e9ecef;
+            padding: 0.75rem 1.25rem;
+        }
+        
+        .custom-navbar .dropdown-item:hover {
+            background-color: #2a4066;
+            color: #ffffff;
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 767.98px) {
+            .pink-box p,
+            .pink-box h6,
+            .pink-box ul {
+                text-align: center;
+                /* Center text within description boxes on small screens */
+            }
+            .custom-navbar .navbar-nav .nav-link,
+            .custom-navbar .dropdown-item {
+                text-align: center;
+            }
+        }
+        
+        .pagination .page-link {
+            color: #4a6fa5;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: #4a6fa5;
+            border-color: #4a6fa5;
+            color: white;
+        }
+        /* Style for the home icon below pagination */
+        
+        .home-icon-container {
+            text-align: center;
+            margin-top: 15px;
+            /* Adjust spacing as needed */
+            margin-bottom: 30px;
+        }
+        
+        .home-icon-container a {
+            color: #4a6fa5;
+            /* Icon color */
+            font-size: 2rem;
+            /* Icon size */
+            transition: color 0.3s ease;
+        }
+        
+        .home-icon-container a:hover {
+            color: #3b5a8e;
+            /* Darker on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="bootstrapGrid.html">RO Guide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="bootstrapGrid.html">หน้าแรก</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClasses" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            คลาสอาชีพ
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownClasses">
+                            <li><a class="dropdown-item" href="class1.html">คลาสอาชีพหลัก</a></li>
+                            <li><a class="dropdown-item" href="class2.html">คลาสอาชีพพิเศษ</a></li>
+                            <li><a class="dropdown-item" href="class3.html">คลาสซัมมอนเนอร์ (แมว)</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-item" href="class4.html">การอัปคลาส 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-3" id="classes-section">
+            <div class="col-12 box pink-box">
+                <h5>คลาสอาชีพหลัก</h5>
+                <h5>มีอาชีพหลัก 6 อาชีพ ได้แก่ นักดาบ นักเวทย์ นักธนู โจร นักบวช พ่อค้า ซึ่งแต่ละอาชีพสามารถเปลี่ยนได้ 2 สาย (2.1 และ 2.2) โดยแต่ละสายจะมีสกิลที่แตกต่างกันไป</h5>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/Swordman1.jpg" class="img-fluid" alt="นักดาบ">
+                        <h5 class="mt-3">นักดาบ</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>นักดาบ (Swordman)</b> คืออาชีพเริ่มต้นสายโจมตีระยะประชิดใน Ragnarok Online</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li><b>ถึกทน</b>: มีค่า HP (พลังชีวิต) และ DEF (พลังป้องกัน) สูงมาก ทำให้ยืนชนมอนสเตอร์ได้สบาย เหมาะเป็น <b>แนวหน้า (Tank)</b> ของปาร์ตี้</li>
+                            <li><b>ดาเมจดี</b>: สามารถสร้างความเสียหายทางกายภาพได้ดีจากการโจมตีปกติและสกิลอย่าง <b>Bash</b> (โจมตีเดี่ยว) หรือ <b>Magnum Break</b> (โจมตีหมู่)</li>
+                            <li><b>ปรับไปได้หลายสาย</b>: เมื่อเปลี่ยนอาชีพขั้นสอง สามารถเลือกเป็น <b>Knight (อัศวิน)</b> ที่เน้นโจมตีและขี่สัตว์ หรือ <b>Crusader (ครูเซเดอร์)</b> ที่เน้นป้องกันและสกิลศักดิ์สิทธิ์ได้</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p>เมื่อนักดาบเลเวลถึงตามเงื่อนไข (ปกติคือ Base Lv. 40 และ Job Lv. 50 สำหรับ Class 2) สามารถเลือกเปลี่ยนอาชีพได้ 2 สายหลัก:</p>
+                        <ul>
+                            <li><b>Knight (อัศวิน):</b> เน้นความแข็งแกร่งในการต่อสู้ระยะประชิด มีสกิลขี่นก Peco Peco เพื่อเพิ่มความเร็วในการเคลื่อนที่ และสกิลโจมตีหมู่ที่รุนแรงขึ้น เหมาะสำหรับสายโจมตีและแทงค์
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Lord Knight (Class 2-2) &rarr; Rune Knight (Class 3) &rarr; Dragon Knight (Class 4)</li>
+                                </ul>
+                            </li>
+                            <li><b>Crusader (ครูเซเดอร์):</b> เน้นการป้องกันและการสนับสนุน มีสกิลป้องกันที่แข็งแกร่ง และสกิลศักดิ์สิทธิ์ที่สามารถโจมตีศัตรู Undead/Demon ได้อย่างมีประสิทธิภาพ รวมถึงสกิล Heal เล็กน้อย
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Paladin (Class 2-2) &rarr; Royal Guard (Class 3) &rarr; Imperial Guard (Class 4)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/Magician1.jpg" class="img-fluid" alt="นักเวทย์">
+                        <h5 class="mt-3">นักเวทย์</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>นักเวทย์ (Magician)</b> คืออาชีพเริ่มต้นที่เชี่ยวชาญการใช้เวทมนตร์โจมตีจากระยะไกล</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li><b>พลังเวทมนตร์สูง</b> และสามารถใช้ <b>สกิลโจมตีหมู่ (AoE)</b> ที่รุนแรงได้หลากหลายธาตุ</li>
+                        </ul>
+                        <h6>ข้อจำกัด:</h6>
+                        <ul>
+                            <li><b>พลังชีวิตและพลังป้องกันต่ำ</b> (เปราะบาง)</li>
+                            <li>สกิลส่วนใหญ่มี <b>เวลาร่าย</b> ทำให้ต้องยืนนิ่งๆ</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p>เมื่อนักเวทย์มี Job Level สูงพอ (ปกติ Job Lv. 50) สามารถเปลี่ยนเป็นอาชีพขั้นสองได้ 2 สายหลัก:</p>
+                        <ul>
+                            <li><b>Wizard (วิซาร์ด):</b> เน้นการเป็นสุดยอดจอมเวทด้วยสกิลโจมตีเวทมนตร์ที่รุนแรงและมีผลกว้างขวางมากขึ้น เหมาะสำหรับทำดาเมจสูงสุด
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> High Wizard (Class 2-2) &rarr; Warlock (Class 3) &rarr; Arch Mage (Class 4)</li>
+                                </ul>
+                            </li>
+                            <li><b>Sage (เซจ):</b> เน้นสกิลสนับสนุนเวทมนตร์ การสร้างกำแพงธาตุ การลบเวทมนตร์ศัตรู หรือการช่วยปาร์ตี้ด้วยบัฟและดีบัฟที่หลากหลาย
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Professor (Class 2-2) &rarr; Sorcerer (Class 3) &rarr; Elemental Master (Class 4)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>สรุปคือนักเวทย์เป็น <b>ตัวทำดาเมจเวทมนตร์ระยะไกล</b> ที่ทรงพลัง และสามารถเลือกพัฒนาไปเป็นสายโจมตีโดยตรง (Wizard) หรือสายสนับสนุนที่มีประโยชน์ (Sage) ได้ครับ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/Archer.png" class="img-fluid" alt="นักธนู">
+                        <h5 class="mt-3">นักธนู</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>นักธนู (Archer)</b> คืออาชีพเริ่มต้นที่เชี่ยวชาญการโจมตีระยะไกลด้วยธนูและลูกธนู</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li><b>พลังโจมตีกายภาพระยะไกลที่แม่นยำและรวดเร็ว</b></li>
+                            <li>มีสกิลเพิ่มประสิทธิภาพในการยิงและสกิลโจมตีหมู่เบาๆ</li>
+                        </ul>
+                        <h6>ข้อจำกัด:</h6>
+                        <ul>
+                            <li><b>พลังชีวิตและพลังป้องกันต่ำ</b> (บอบบาง)</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p>เมื่อนักธนูมี Job Level สูงพอ (ปกติ Job Lv. 50) สามารถเปลี่ยนเป็นอาชีพขั้นสองได้ 2 สายหลัก:</p>
+                        <ul>
+                            <li><b>Hunter (ฮันเตอร์):</b> เน้นการเป็นนักล่ามือฉมัง มีสกิลโจมตีที่รุนแรงและรวดเร็วขึ้นมาก รวมถึงสามารถวางกับดัก และใช้สัตว์เลี้ยงคู่ใจอย่าง Falcon (เหยี่ยว) ช่วยโจมตีได้
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Sniper (Class 2-2) &rarr; Ranger (Class 3) &rarr; Troubadour / Pop Star (Class 4) (สำหรับสายเพลง/เต้น) หรือ Meister (สำหรับสายกับดัก/สัตว์เลี้ยง)</li>
+                                </ul>
+                            </li>
+                            <li><b>Bard / Dancer (บาร์ด / แดนเซอร์):</b> เป็นอาชีพคู่ที่เน้นการสนับสนุนปาร์ตี้ด้วยเพลงหรือการเต้นรำเพื่อเพิ่มบัฟหรือดีบัฟต่างๆ ไม่มีสกิลโจมตีหลัก แต่มีบทบาทสำคัญในการซัพพอร์ต
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Clown / Gypsy (Class 2-2) &rarr; Minstrel / Wanderer (Class 3) &rarr; Troubadour / Pop Star (Class 4)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>สรุปคือนักธนูเป็น <b>ตัวทำดาเมจกายภาพระยะไกล</b> ที่สามารถพัฒนาไปเป็นสายโจมตีขั้นสูง (Hunter) หรือสายสนับสนุน (Bard/Dancer) ได้ครับ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/rogue.jpg" class="img-fluid" alt="โจร">
+                        <h5 class="mt-3">โจร</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>โจร (Thief)</b> คืออาชีพเริ่มต้นที่เน้นความเร็ว, การหลบหลีก, และการสร้างความเสียหายในระยะประชิดอย่างรวดเร็ว</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li>ค่า <b>AGI (Agility)</b> สูง ทำให้มี <b>Flee (หลบหลีก)</b> ที่ดีเยี่ยม และ <b>ASPD (ความเร็วในการโจมตี)</b> ที่รวดเร็ว</li>
+                            <li>มีสกิล <b>ขโมยของ (Steal)</b> จากมอนสเตอร์</li>
+                        </ul>
+                        <h6>ข้อจำกัด:</h6>
+                        <ul>
+                            <li><b>พลังชีวิตและพลังป้องกันค่อนข้างต่ำ</b> เมื่อเทียบกับนักดาบ</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p>เมื่อโจรมี Job Level สูงพอ (ปกติ Job Lv. 50) สามารถเปลี่ยนเป็นอาชีพขั้นสองได้ 2 สายหลัก:</p>
+                        <ul>
+                            <li><b>Assassin (แอสซาซิน):</b> เน้นการสร้างความเสียหายรุนแรงและรวดเร็วด้วยอาวุธคู่ (Dual Wield) หรือกรงเล็บ (Katar) รวมถึงมีสกิลลอบสังหาร, วางกับดักพิษ, และใช้สกิลซ่อนตัว (Cloaking) เพื่อลอบโจมตีศัตรู
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Assassin Cross (Class 2-2) &rarr; Guillotine Cross (Class 3) &rarr; Shadow Cross (Class 4)</li>
+                                </ul>
+                            </li>
+                            <li><b>Rogue (โร้ก):</b> เน้นสกิลควบคุมศัตรู, การขโมย, การลอกสกิล (Plagiarism), หรือการกางแผ่นดินหลอกตา (Strip) เพื่อลดความสามารถของศัตรู เป็นสายที่มีประโยชน์ในการสนับสนุนและก่อกวน
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Stalker (Class 2-2) &rarr; Chaser (Class 3) &rarr; Abyss Chaser (Class 4)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>สรุปคือโจรเป็น <b>นักสู้ระยะประชิดที่พึ่งพาความเร็วและการหลบหลีก</b> และสามารถพัฒนาไปเป็นสายทำดาเมจจัดจ้าน (Assassin) หรือสายควบคุมและก่อกวน (Rogue) ได้ครับ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/Priest.jpg" class="img-fluid" alt="นักบวช">
+                        <h5 class="mt-3">นักบวช</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>นักบวช (Acolyte)</b> คืออาชีพเริ่มต้นสายสนับสนุนและเวทมนตร์ศักดิ์สิทธิ์</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li><b>สกิลฟื้นฟู (Heal)</b> พลังชีวิตเพื่อนร่วมทีม</li>
+                            <li><b>สกิลบัฟ</b> ที่ช่วยเพิ่มความสามารถในการต่อสู้ ทำให้เป็นหัวใจสำคัญของปาร์ตี้</li>
+                        </ul>
+                        <h6>ข้อจำกัด:</h6>
+                        <ul>
+                            <li><b>พลังโจมตีต่ำ</b> และมักจะต้องพึ่งพาเพื่อนร่วมทีมในการเก็บเลเวลช่วงแรก</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p>เมื่อนักบวชมี Job Level สูงพอ (ปกติ Job Lv. 50) สามารถเปลี่ยนเป็นอาชีพขั้นสองได้ 2 สายหลัก:</p>
+                        <ul>
+                            <li><b>Priest (พรีสต์):</b> เน้นการเป็นผู้รักษาและผู้สนับสนุนเต็มตัว มีสกิล Heal ที่ทรงพลังขึ้นมาก สกิลบัฟที่หลากหลายและมีประสิทธิภาพสูง รวมถึงสกิลชุบชีวิต เหมาะสำหรับบทบาทซัพพอร์ตในปาร์ตี้
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> High Priest (Class 2-2) &rarr; Archbishop (Class 3) &rarr; Cardinal (Class 4)</li>
+                                </ul>
+                            </li>
+                            <li><b>Monk (มังค์):</b> เน้นการต่อสู้ระยะประชิดด้วยสนับมือและสกิลสายกายภาพที่รุนแรงผสมผสานกับการใช้ SP และสกิลควบคุม เหมาะสำหรับผู้เล่นที่ต้องการสร้างดาเมจและยังคงมีสกิลสนับสนุนพื้นฐานอยู่บ้าง
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Champion (Class 2-2) &rarr; Sura (Class 3) &rarr; Inquisitor (Class 4)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box pink-box">
+                <div class="row">
+                    <div class="col-md-4 col-lg-2 text-center">
+                        <img src="image/Black.jpg" class="img-fluid" alt="พ่อค้า">
+                        <h5 class="mt-3">พ่อค้า</h5>
+                    </div>
+                    <div class="col-md-8 col-lg-10 text-start">
+                        <p><b>พ่อค้า (Merchant)</b> คืออาชีพเริ่มต้นที่เน้นด้านเศรษฐกิจและการค้าขายเป็นหลัก</p>
+                        <h6>จุดเด่นสำคัญ:</h6>
+                        <ul>
+                            <li><b>สกิลส่วนลด/เพิ่มราคา</b> ในการซื้อขายไอเทมกับ NPC</li>
+                            <li>สามารถ <b>ตั้งร้านขายของ</b> ให้ผู้เล่นอื่นได้</li>
+                            <li>มีสกิลโจมตีเบื้องต้นที่ใช้ในการป้องกันตัวและเก็บเลเวลได้</li>
+                        </ul>
+                        <h6>ข้อจำกัด:</h6>
+                        <ul>
+                            <li>โดยรวมแล้วไม่ได้เป็นสายต่อสู้ที่โดดเด่นนัก</li>
+                        </ul>
+                        <h6>การเปลี่ยนอาชีพ:</h6>
+                        <p>เมื่อพ่อค้ามี Job Level สูงพอ (ปกติ Job Lv. 50) สามารถเปลี่ยนเป็นอาชีพขั้นสองได้ 2 สายหลัก:</p>
+                        <ul>
+                            <li><b>Blacksmith (แบล็คสมิธ):</b> เน้นการตีดาเมจกายภาพด้วยขวานหรือค้อน และความสามารถในการ <b>ตีบวกอุปกรณ์</b> และ <b>สร้างอาวุธ</b> ต่างๆ มีสกิลบัฟที่เพิ่มพลังโจมตีของตัวเองและเพื่อนในปาร์ตี้ได้ เหมาะสำหรับสายต่อสู้และการผลิต
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Whitesmith (Class 2-2) &rarr; Mechanic (Class 3) &rarr; Meister (Class 4)</li>
+                                </ul>
+                            </li>
+                            <li><b>Alchemist (อัลเคมิสต์):</b> เน้นความสามารถในการ <b>ปรุงยา</b> และสร้างไอเทมหายากต่างๆ รวมถึงมีความสามารถในการควบคุม <b>โฮมุนครูส (Homunculus)</b> ที่เป็นเหมือนสัตว์เลี้ยงคู่ใจคอยช่วยเหลือในการต่อสู้และเก็บเลเวล เหมาะสำหรับสายผลิตและผู้ที่ชอบเล่นแบบมีคู่หู
+                                <ul>
+                                    <li><b>สายต่อยอด:</b> Creator (Class 2-2) &rarr; Genetic (Class 3) &rarr; Biolo (Class 4)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation" class="mt-5 mb-3">
+        <ul class="pagination justify-content-center">
+            <li class="page-item ">
+                <a class="page-link" href="bootstrapGrid.html" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="bootstrapGrid.html">1</a></li>
+            <li class="page-item active"><a class="page-link" href="class1.html">2</a></li>
+            <li class="page-item"><a class="page-link" href="class2.html">3</a></li>
+            <li class="page-item"><a class="page-link" href="class3.html">4</a></li>
+            <li class="page-item"><a class="page-link" href="class4.html">5</a></li>
+            <li class="page-item">
+                <a class="page-link" href="class2.html" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="home-icon-container">
+        <a href="bootstrapGrid.html" title="กลับหน้าแรก">
+            <i class="bi bi-house-door-fill"></i>
+        </a>
+    </div>
+    <div class="row ">
+        <div class="col-12 box yellow-box ">
+            <h1>นาย โกศล สละชีพ 664281026 Phone-062-529-4539</h1>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

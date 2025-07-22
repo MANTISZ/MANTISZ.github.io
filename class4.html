@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RO Guide - การอัปคลาส 4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .box {
+            border: 1px solid #dee2e6;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .box h5 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        /* Adjusted .pink-box to be the container for each class info row */
+        
+        .pink-box {
+            background-color: #ffe0e6;
+            color: #6a0028;
+            font-size: 0.95rem;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .yellow-box {
+            background-color: #fff3cd;
+            /* Light yellow background */
+            color: #664d03;
+            /* Darker yellow text */
+            font-size: 0.95rem;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ffecb5;
+            /* Lighter yellow border */
+        }
+        
+        .yellow-box h6 {
+            color: #997e2d;
+            /* Slightly darker heading for yellow box */
+            text-align: left;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .class4-info {
+            background-color: #ffffff;
+            /* White background for each class section */
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .class4-info img {
+            max-width: 120px;
+            /* Smaller image size for class icons */
+            height: auto;
+            border-radius: 50%;
+            /* Make images circular */
+            margin-bottom: 15px;
+            border: 3px solid #d12c5b;
+            /* Border matching pink theme */
+        }
+        
+        .class4-info h5 {
+            color: #343a40;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .class4-info h6 {
+            color: #4a6fa5;
+            /* Blue for subheadings within class info */
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        /* General heading styles */
+        
+        h1 {
+            color: #343a40;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+        
+        h3 {
+            color: #343a40;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .container {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        /* Custom Jumbotron (if you add content for it) */
+        
+        .my-jumbotron {
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            background-color: #000000;
+            border-radius: .3rem;
+            text-align: center;
+            background-image: url('image/1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: rgb(0, 0, 0);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .my-jumbotron h1 {
+            color: rgb(0, 0, 0);
+        }
+        /* Custom Navbar styling */
+        
+        .custom-navbar {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            background-color: #4a6fa5;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .custom-navbar .navbar-nav .nav-link {
+            color: #e9ecef !important;
+            font-weight: 600;
+            padding: 0.75rem 1.25rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .custom-navbar .navbar-nav .nav-link:hover,
+        .custom-navbar .navbar-nav .nav-link.active {
+            background-color: #3b5a8e;
+            color: #ffffff !important;
+            border-radius: 5px;
+        }
+        
+        .custom-navbar .navbar-brand {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        
+        .custom-navbar .dropdown-menu {
+            background-color: #3b5a8e;
+            border: none;
+        }
+        
+        .custom-navbar .dropdown-item {
+            color: #e9ecef;
+            padding: 0.75rem 1.25rem;
+        }
+        
+        .custom-navbar .dropdown-item:hover {
+            background-color: #2a4066;
+            color: #ffffff;
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 767.98px) {
+            .pink-box p,
+            .pink-box h6,
+            .pink-box ul,
+            .pink-box ol,
+            .yellow-box p,
+            .yellow-box h6,
+            .yellow-box ul,
+            .yellow-box ol,
+            .class4-info p,
+            .class4-info ul {
+                text-align: center;
+            }
+            .class4-info img {
+                margin: 0 auto 15px auto;
+                /* Center image on small screens */
+            }
+            .custom-navbar .navbar-nav .nav-link,
+            .custom-navbar .dropdown-item {
+                text-align: center;
+            }
+        }
+        
+        .pagination .page-link {
+            color: #4a6fa5;
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: #4a6fa5;
+            border-color: #4a6fa5;
+            color: white;
+        }
+        /* Style for the home icon below pagination */
+        
+        .home-icon-container {
+            text-align: center;
+            margin-top: 15px;
+            /* Adjust spacing as needed */
+            margin-bottom: 30px;
+        }
+        
+        .home-icon-container a {
+            color: #4a6fa5;
+            /* Icon color */
+            font-size: 2rem;
+            /* Icon size */
+            transition: color 0.3s ease;
+        }
+        
+        .home-icon-container a:hover {
+            color: #3b5a8e;
+            /* Darker on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="bootstrapGrid.html">RO Guide</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="bootstrapGrid.html">หน้าแรก</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownClasses" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            คลาสอาชีพ
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownClasses">
+                            <li><a class="dropdown-item" href="class1.html">คลาสอาชีพหลัก</a></li>
+                            <li><a class="dropdown-item" href="class2.html">คลาสอาชีพพิเศษ</a></li>
+                            <li><a class="dropdown-item" href="class3.html">คลาสซัมมอนเนอร์ (แมว)</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="class4.html">การอัปคลาส 4</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-3" id="classes-section">
+            <div class="col-12 box pink-box text-center">
+                <h3>การเปลี่ยนอาชีพ คลาส 4</h3>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 box yellow-box text-center">
+                <img src="image/12.jpg" class="img-fluid rounded-lg mb-3" alt="Ragnarok Online Class 4">
+                <p>
+                    การอัป **คลาส 4** ใน Ragnarok Online คือการเปลี่ยนผ่านครั้งสำคัญที่จะยกระดับความสามารถของตัวละครคุณไปอีกขั้น! ทุกอาชีพจะได้รับพลังและสกิลใหม่ๆ สุดอลังการที่น่าสนใจมากๆ
+                </p>
+                <h6>เงื่อนไขเบื้องต้นสู่คลาส 4:</h6>
+                <ul>
+                    <li>**Base Level 200:** ต้องเก็บ Base Level ให้ถึง 200</li>
+                    <li>**Job Level 70:** ต้องเก็บ Job Level ให้ถึง 70 (สำหรับ Class 3 หรือ Transcendent Class)</li>
+                    <li>**ทำเควสเปลี่ยนอาชีพ:** แต่ละอาชีพจะมีเควสเฉพาะที่ต้องทำ เพื่อปลดล็อกการเปลี่ยนคลาส 4 (ยกเว้น Doram และ Super Novice ที่มีเงื่อนไขต่างออกไปเล็กน้อย)</li>
+                </ul>
+                <p>
+                    นอกจากนี้ คลาส 4 ยังมาพร้อมระบบใหม่ๆ เช่น **Activity Point (AP)** ที่ใช้สำหรับสกิลอัลติเมทสุดอลังการ และ **Trait Stats (POW, STA, WIS, SPL, CON, CRT)** ที่ให้คุณปรับแต่งตัวละครได้ลึกซึ้งยิ่งขึ้นหลังเลเวล 200 บอกเลยว่าการอัปคลาส 4 ไม่ใช่แค่การเพิ่มเลเวล
+                    แต่เป็นการเปิดโลกใหม่ของ RO ให้คุณได้สนุกกับการเล่นในแบบที่ลึกซึ้งและท้าทายกว่าเดิมมากๆ ครับ!
+                </p>
+            </div>
+        </div>
+
+        <h3 class="mt-5 mb-4">สายอาชีพหลักสู่คลาส 4</h3>
+
+        <div class="row">
+            <div class="col-12 class4-info">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <img src="image/dg.jpg" alt="Swordsman Class 4" class="mb-3">
+                        <h5>สาย Swordsman (นักดาบ)</h5>
+                    </div>
+                    <div class="col-md-9 text-start">
+                        <h6>Rune Knight สู่ **Dragon Knight**</h6>
+                        <p>
+                            สุดยอดนักรบขี่มังกร! เน้นการโจมตีประชิดที่รุนแรงด้วยหอกหรือดาบสองมือ พร้อมสกิลบัฟ/ดีบัฟที่เกี่ยวข้องกับมังกร เป็นตัวลุยแนวหน้า หรือดาเมจหลักในปาร์ตี้ สกิลใหม่เน้นคอมโบโจมตีต่อเนื่องและพลังจากมังกร!
+                        </p>
+                        <h6>Royal Guard สู่ **Imperial Guard**</h6>
+                        <p>
+                            ผู้พิทักษ์แห่งอาณาจักร! โดดเด่นด้านการป้องกันและการสนับสนุน สามารถแทงค์บอสได้เยี่ยมยอด พร้อมสกิลป้องกันและสวนกลับที่ทรงพลัง เป็นเสาหลักของทีมที่ขาดไม่ได้ สกิลใหม่เสริมการป้องกันหมู่และสะท้อนความเสียหาย!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 class4-info">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <img src="image/mg.jpg" alt="Mage Class 4" class="mb-3">
+                        <h5>สาย Mage (นักเวท)</h5>
+                    </div>
+                    <div class="col-md-9 text-start">
+                        <h6>Warlock สู่ **Arch Mage**</h6>
+                        <p>
+                            จอมเวทผู้ควบคุมธาตุ! เน้นเวทมนตร์ธาตุที่รุนแรงและครอบคลุม สามารถร่ายเวทได้เร็วขึ้นและมี Damage AOE มหาศาล เป็นตัวทำดาเมจเวทมนตร์หลักของทีม สกิลใหม่คือเวทขั้นสูงที่ลด Cooldown และเพิ่ม Damage คอมโบธาตุ!
+                        </p>
+                        <h6>Sorcerer สู่ **Elemental Master**</h6>
+                        <p>
+                            ผู้ควบคุมภูตธาตุ! เชี่ยวชาญในการควบคุมธาตุและเรียกภูตธาตุหลากหลายมาช่วยต่อสู้หรือสนับสนุน มีสกิล CC (Crowd Control) ที่ดีเยี่ยม เหมาะกับสายสนับสนุนหรือเวทควบคุม สกิลใหม่คือภูตธาตุใหม่ๆ และสกิลเสริมพลังภูต!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 class4-info">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <img src="image/rg.jpg" alt="Archer Class 4" class="mb-3">
+                        <h5>สาย Archer (นักธนู)</h5>
+                    </div>
+                    <div class="col-md-9 text-start">
+                        <h6>Ranger สู่ **Windhawk**</h6>
+                        <p>
+                            มือธนูสายลม! สุดยอดนักธนูระยะไกลที่มี Damage ต่อเป้าหมายเดียวมหาศาล ควบคุมพื้นที่ด้วยกับดักที่หลากหลาย พร้อมสกิลเพิ่มความเร็วในการโจมตีและเคลื่อนที่ เป็น Damage Dealer ตัวหลักของปาร์ตี้ สกิลใหม่เน้นการโจมตีธนูและการใช้เหยี่ยว/กับดัก!
+                        </p>
+                        <h6>Minstrel / Wanderer สู่ **Troubadour / Trouvere**</h6>
+                        <p>
+                            ผู้ขับขานแห่งการสนับสนุน! มอบเสียงเพลงแห่งการสนับสนุนและควบคุมบัฟปาร์ตี้ได้อย่างมีประสิทธิภาพ พร้อมสกิลดีบัฟศัตรูที่หลากหลายและสกิลโจมตีด้วยเครื่องดนตรี/แส้ เป็นกำลังสำคัญในการสนับสนุนปาร์ตี้ สกิลใหม่คือเพลงและเต้นรำที่มีผลกว้างขึ้น!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 class4-info">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <img src="image/po.jpg" alt="Acolyte Class 4" class="mb-3">
+                        <h5>สาย Acolyte (นักบวช)</h5>
+                    </div>
+                    <div class="col-md-9 text-start">
+                        <h6>Arch Bishop สู่ **Saint**</h6>
+                        <p>
+                            ผู้รักษาและคุ้มครอง! มีสกิลฮีลและบัฟที่ทรงพลังที่สุด สามารถชุบชีวิตเพื่อนร่วมทีมและขับไล่วิญญาณชั่วร้าย เป็นสาย Support ที่ขาดไม่ได้ในทุกปาร์ตี้ สกิลใหม่คือฮีลหมู่ที่แรงขึ้นและสกิลป้องกันที่แข็งแกร่ง!
+                        </p>
+                        <h6>Shura สู่ **Dragon Fist**</h6>
+                        <p>
+                            ปรมาจารย์หมัดมังกร! เชี่ยวชาญศิลปะการต่อสู้ระยะประชิด มีสกิลคอมโบที่รวดเร็วและ Damage สูง สามารถแทงค์และสร้าง Damage ได้พร้อมกัน เหมาะกับสาย Damage Dealer ที่เน้นการต่อสู้ระยะใกล้ สกิลใหม่คือคอมโบหมัด/เท้าที่ซับซ้อนและรุนแรงขึ้น!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 class4-info">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <img src="image/bo.jpg" alt="Merchant Class 4" class="mb-3">
+                        <h5>สาย Merchant (พ่อค้า)</h5>
+                    </div>
+                    <div class="col-md-9 text-start">
+                        <h6>Mechanic สู่ **Meister**</h6>
+                        <p>
+                            สุดยอดวิศวกร! สามารถเรียกหุ่นยนต์ทรงพลังมาช่วยต่อสู้ได้หลากหลาย มีสกิลโจมตีด้วยเครื่องจักรและปืน เป็นสายที่เน้นการโจมตีด้วยเทคโนโลยี สกิลใหม่คือหุ่นยนต์รูปแบบใหม่และสกิลเสริมพลังหุ่นยนต์!
+                        </p>
+                        <h6>Genetic สู่ **Begetter**</h6>
+                        <p>
+                            นักเคมีผู้สร้างสรรค์! สามารถสร้างระเบิดและยาที่มีประสิทธิภาพสูง มีสกิลโจมตีด้วยพืชและสัตว์เลี้ยง เป็นสายที่เน้นการโจมตีด้วยสารเคมีและการสนับสนุน สกิลใหม่คือระเบิด/ยาใหม่ๆ และสกิลเสริมประสิทธิภาพพืช/สัตว์เลี้ยง!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 class4-info">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <img src="image/ro.jpg" alt="Thief Class 4" class="mb-3">
+                        <h5>สาย Thief (โจร)</h5>
+                    </div>
+                    <div class="col-md-9 text-start">
+                        <h6>Guillotine Cross สู่ **Soul Blade Cross**</h6>
+                        <p>
+                            นักฆ่าเงามืด! รวดเร็วและเงียบงัน มี Damage ต่อเป้าหมายเดียวสูงมาก พร้อมความสามารถในการลอบสังหารและใช้พิษ เหมาะกับสาย DPS ที่เน้นการ Burst Damage สกิลใหม่คือลอบสังหารที่รุนแรงและสกิลพิษที่ซับซ้อน!
+                        </p>
+                        <h6>Shadow Chaser สู่ **Phantom Dancer**</h6>
+                        <p>
+                            จอมพรางตัว! เชี่ยวชาญการพรางตัวและการหลอกล่อ สามารถคัดลอกสกิลศัตรูมาใช้ได้ พร้อมสกิลดีบัฟที่หลากหลายและรบกวนศัตรู เหมาะกับสาย PvP หรือการควบคุมสนามรบ สกิลใหม่คือความสามารถในการคัดลอกสกิลและสกิลพรางตัวขั้นสูง!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav aria-label="Page navigation" class="mt-5 mb-3">
+            <ul class="pagination justify-content-center">
+                <li class="page-item ">
+                    <a class="page-link" href="class3.html" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="bootstrapGrid.html">1</a></li>
+                <li class="page-item"><a class="page-link" href="class1.html">2</a></li>
+                <li class="page-item"><a class="page-link" href="class2.html">3</a></li>
+                <li class="page-item"><a class="page-link" href="class3.html">4</a></li>
+                <li class="page-item active"><a class="page-link" href="class4.html">5</a></li>
+                <li class="page-item disabled">
+                    <a class="page-link" href="class4.html" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+
+
+    </div>
+    <div class="home-icon-container">
+        <a href="bootstrapGrid.html" title="กลับหน้าแรก">
+            <i class="bi bi-house-door-fill"></i>
+        </a>
+    </div>
+    <div class="row ">
+        <div class="col-12 box yellow-box ">
+            <h1>นาย โกศล สละชีพ 664281026 Phone-062-529-4539</h1>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
